@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+   
+</head>
+<body>
+      <div class="container" style="padding-top: 32px">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Descripcion</th>
+                  <th>Precio</th>
+                  <th><a th:href="@{/nuevo}" href="nuevo.html" class="btn btn-primary">Nuevo</a></th>
+                </tr>
+              </thead>
+              <tbody th:remove="all-but-first">
+              	<tr th:each="producto : ${productos}">
+                  <td th:text="${producto.id}">1</td>
+                  <td th:text="${producto.nombre}">Mark</td>
+                  <td th:text="${producto.descripcion}">Otto</td>
+                  <td th:text="${producto.precio}">@mdo</td>
+                  <td><a th:href="@{/{id}/editar(id=${producto.id})}" href="#" class="btn btn-primary">Editar</a></td>
+                  <td><a th:href="@{/{id}/eliminar(id=${producto.id})}" onclick="return confirm('Eliminar')" href="#" class="btn btn-primary">Eliminar</a></td>
+                </tr>
+              	<tr>
+                  <td>1</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td><a class="btn btn-primary">Editar</a></td>
+                  <td><a class="btn btn-primary">Eliminar</a></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td><a class="btn btn-primary">Editar</a></td>
+                  <td><a class="btn btn-primary">Eliminar</a></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                  <td><a class="btn btn-primary">Editar</a></td>
+                  <td><a class="btn btn-primary">Eliminar</a></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                  <td><a class="btn btn-primary">Editar</a></td>
+                  <td><a class="btn btn-primary">Eliminar</a></td>
+                </tr>
+              </tbody>              
+            </table>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
